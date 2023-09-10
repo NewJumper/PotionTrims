@@ -1,5 +1,6 @@
 package com.newjumper.potiontrims.mixin;
 
+import com.newjumper.potiontrims.PotionTrims;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.ItemCombinerScreen;
 import net.minecraft.client.gui.screens.inventory.SmithingScreen;
@@ -22,7 +23,7 @@ public class SmithingScreenMixin extends ItemCombinerScreen<SmithingMenu> {
     @Inject(method = "renderOnboardingTooltips", at = @At("HEAD"))
     public void renderOnboardingTooltips(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, CallbackInfo cir) {
         if(isHovering(44, 30, 16, 16, pMouseX, pMouseY)) {
-            pGuiGraphics.renderTooltip(this.font, Component.literal("Add potion"), pMouseX, pMouseY);
+            pGuiGraphics.renderTooltip(this.font, Component.translatable("item." + PotionTrims.MOD_ID + ".smithing.potion_slot_description"), pMouseX, pMouseY);
         }
     }
 
